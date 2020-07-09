@@ -23,10 +23,12 @@ class TransactionsRepository extends Repository<Transaction> {
     .where("tr.type = :type", { type: 'outcome' })
     .getRawOne();
 
+    const total = (incomeSum.sum ? parseFloat(incomeSum.sum) : 0) - (outcomeSum.sum ? parseFloat(outcomeSum.sum) : 0)
+
     const balance = {
-      income: incomeSum.sum,
-      outcome: outcomeSum.sum,
-      total: incomeSum.sum - outcomeSum.sum
+      income: incomeSum.sum ? parseFloat(incomeSum.sum) : 0,
+      outcome: outcomeSum.sum ? parseFloat(outcomeSum.sum) : 0 ,
+      total
     }
 
     return balance;
