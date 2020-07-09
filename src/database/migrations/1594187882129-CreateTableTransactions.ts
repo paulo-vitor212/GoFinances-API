@@ -30,7 +30,9 @@ export class CreateTableTransactions1594187882129 implements MigrationInterface 
                     },
                     {
                         name: 'value',
-                        type: 'int',
+                        type: 'decimal',
+                        precision: 10,
+                        scale: 2,
                     },
                     {
                         name: 'created_at',
