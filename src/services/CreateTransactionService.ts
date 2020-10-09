@@ -1,7 +1,7 @@
 import AppError from '../errors/AppError';
 import {getRepository,getCustomRepository} from 'typeorm';
 
-import TransactionRepository from '../repositories/TransactionsRepository';;
+import TransactionRepository from '../repositories/TransactionsRepository';
 import Category from '../models/Category';
 import Transaction from '../models/Transaction';
 
@@ -36,7 +36,7 @@ class CreateTransactionService {
     if(type === 'outcome'){
       if((balance.total - value) < 0 ){
         //Ta tirando mais do que possuí
-        throw new AppError(`Saldo insuficiente para realizar está transação. Seu saldo é de ${balance.total}.`);
+        throw new AppError(`Saldo insuficiente para realizar esta transação. Seu saldo é de ${balance.total}.`);
       }
     }
 
